@@ -34,6 +34,8 @@ function Stake() {
         return state.account.balances && state.account.balances.memo;
     });
     const stakeAllowance = useSelector<IReduxState, number>(state => {
+        // console.log(99999, state.account.staking && state.account.staking.time);
+
         return state.account.staking && state.account.staking.time;
     });
     const unstakeAllowance = useSelector<IReduxState, number>(state => {
@@ -62,6 +64,8 @@ function Stake() {
     };
 
     const onSeekApproval = async (token: string) => {
+        console.log(123);
+
         if (await checkWrongNetwork()) return;
 
         await dispatch(changeApproval({ address, token, provider, networkID: chainID }));

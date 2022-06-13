@@ -79,7 +79,9 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
 
     if (addresses.TIME_ADDRESS) {
         const timeContract = new ethers.Contract(addresses.TIME_ADDRESS, TimeTokenContract, provider);
+
         timeBalance = await timeContract.balanceOf(address);
+
         stakeAllowance = await timeContract.allowance(address, addresses.STAKING_HELPER_ADDRESS);
     }
 
@@ -88,15 +90,15 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
         memoBalance = await memoContract.balanceOf(address);
         unstakeAllowance = await memoContract.allowance(address, addresses.STAKING_ADDRESS);
 
-        if (addresses.WMEMO_ADDRESS) {
-            memoWmemoAllowance = await memoContract.allowance(address, addresses.WMEMO_ADDRESS);
-        }
+        // if (addresses.WMEMO_ADDRESS) {
+        //     memoWmemoAllowance = await memoContract.allowance(address, addresses.WMEMO_ADDRESS);
+        // }
     }
 
-    if (addresses.WMEMO_ADDRESS) {
-        const wmemoContract = new ethers.Contract(addresses.WMEMO_ADDRESS, wMemoTokenContract, provider);
-        wmemoBalance = await wmemoContract.balanceOf(address);
-    }
+    // if (addresses.WMEMO_ADDRESS) {
+    //     const wmemoContract = new ethers.Contract(addresses.WMEMO_ADDRESS, wMemoTokenContract, provider);
+    //     wmemoBalance = await wmemoContract.balanceOf(address);
+    // }
 
     return {
         balances: {
@@ -289,7 +291,7 @@ const accountSlice = createSlice({
             })
             .addCase(loadAccountDetails.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(111111, error);
             })
             .addCase(getBalances.pending, state => {
                 state.loading = true;
@@ -300,7 +302,7 @@ const accountSlice = createSlice({
             })
             .addCase(getBalances.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(2222222, error);
             })
             .addCase(calculateUserBondDetails.pending, (state, action) => {
                 state.loading = true;
@@ -313,7 +315,7 @@ const accountSlice = createSlice({
             })
             .addCase(calculateUserBondDetails.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(3333333, error);
             })
             .addCase(calculateUserTokenDetails.pending, (state, action) => {
                 state.loading = true;
@@ -326,7 +328,7 @@ const accountSlice = createSlice({
             })
             .addCase(calculateUserTokenDetails.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(44444, error);
             });
     },
 });

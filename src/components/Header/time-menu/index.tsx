@@ -24,7 +24,7 @@ const addTokenToWallet = (tokenSymbol: string, tokenAddress: string) => async ()
                 },
             });
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 };

@@ -102,7 +102,7 @@ function App() {
         }
     }, [connected]);
 
-    if (isAppLoading) return <Loading />;
+    // if (isAppLoading) return <Loading />;
 
     return (
         <ViewBase>
@@ -130,9 +130,9 @@ function App() {
                     <ChooseBond />
                 </Route>
 
-                <Route path="/calculator">
+                {/* <Route path="/calculator">
                     <Calculator />
-                </Route>
+                </Route> */}
 
                 <Route component={NotFound} />
             </Switch>

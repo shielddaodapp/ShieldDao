@@ -114,7 +114,7 @@ function NavContent() {
                         ))}
                     </div>
 
-                    <Link
+                    {/* <Link
                         component={NavLink}
                         to="/calculator"
                         isActive={(match: any, location: any) => {
@@ -126,7 +126,7 @@ function NavContent() {
                             <img alt="" src={GlobeIcon} />
                             <p>Calculator</p>
                         </div>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
             <div className="dapp-menu-doc-link">

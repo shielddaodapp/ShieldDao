@@ -208,7 +208,7 @@ const wrapSlice = createSlice({
             })
             .addCase(calcWrapDetails.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(error);
             })
             .addCase(calcWrapPrice.pending, state => {
                 state.loading = true;
@@ -219,7 +219,7 @@ const wrapSlice = createSlice({
             })
             .addCase(calcWrapPrice.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(error);
             });
     },
 });

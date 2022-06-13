@@ -3,7 +3,8 @@ import { Networks } from "../constants/blockchain";
 const switchRequest = () => {
     return window.ethereum.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: "0xa86a" }],
+        // params: [{ chainId: "0xa86a" }],
+        params: [{ chainId: "0x4" }],
     });
 };
 
@@ -36,10 +37,10 @@ export const swithNetwork = async () => {
                     await addChainRequest();
                     await switchRequest();
                 } catch (addError) {
-                    console.log(error);
+                    // console.log(error);
                 }
             }
-            console.log(error);
+            // console.log(error);
         }
     }
 };

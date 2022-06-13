@@ -21,9 +21,12 @@ export const loadAppDetails = createAsyncThunk(
         const addresses = getAddresses(networkID);
 
         const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
+
         const currentBlock = await provider.getBlockNumber();
         const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
+
         const memoContract = new ethers.Contract(addresses.MEMO_ADDRESS, MemoTokenContract, provider);
+
         const timeContract = new ethers.Contract(addresses.TIME_ADDRESS, TimeTokenContract, provider);
 
         const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
@@ -32,10 +35,13 @@ export const loadAppDetails = createAsyncThunk(
         const circSupply = (await memoContract.circulatingSupply()) / Math.pow(10, 9);
 
         const stakingTVL = circSupply * marketPrice;
+
         const marketCap = totalSupply * marketPrice;
 
         const tokenBalPromises = allBonds.map(bond => bond.getTreasuryBalance(networkID, provider));
+
         const tokenBalances = await Promise.all(tokenBalPromises);
+
         const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => tokenBalance0 + tokenBalance1, 0);
 
         const tokenAmountsPromises = allBonds.map(bond => bond.getTokenAmount(networkID, provider));
@@ -50,12 +56,12 @@ export const loadAppDetails = createAsyncThunk(
         const rfv = rfvTreasury / timeSupply;
 
         const epoch = await stakingContract.epoch();
+
         const stakingReward = epoch.distribute;
         const circ = await memoContract.circulatingSupply();
         const stakingRebase = stakingReward / circ;
         const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
         const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
-
         const currentIndex = await stakingContract.index();
         const nextRebase = epoch.endTime;
 
@@ -125,7 +131,7 @@ const appSlice = createSlice({
             })
             .addCase(loadAppDetails.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(error);
             });
     },
 });
