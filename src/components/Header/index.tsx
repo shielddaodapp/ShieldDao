@@ -7,7 +7,7 @@ import ConnectButton from "./connect-button";
 import WrapButton from "./wrap-button";
 import "./header.scss";
 import { DRAWER_WIDTH, TRANSITION_DURATION } from "../../constants/style";
-
+import { useTranslation } from "react-i18next";
 interface IHeader {
     handleDrawerToggle: () => void;
     drawe: boolean;
@@ -45,7 +45,11 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
     const classes = useStyles();
     const isVerySmallScreen = useMediaQuery("(max-width: 400px)");
     const isWrapShow = useMediaQuery("(max-width: 480px)");
-
+    const { t, i18n } = useTranslation();
+    const changeLange = (lang: any) => {
+        i18n.changeLanguage(lang);
+        sessionStorage.setItem("lang", lang);
+    };
     return (
         <div className={`${classes.topBar} ${!drawe && classes.topBarShift}`}>
             <AppBar position="sticky" className={classes.appBar} elevation={0}>
@@ -54,9 +58,16 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
                         <img src={MenuIcon} alt="" />
                     </div>
                     <div className="dapp-topbar-btns-wrap">
-                        {!isVerySmallScreen && <TimeMenu />}
+                        {/* {!isVerySmallScreen && <TimeMenu />} */}
                         {!isWrapShow && <WrapButton />}
                         <ConnectButton />
+                        <div
+                            onClick={() => {
+                                changeLange(sessionStorage.getItem("lang") === "en" ? "zh" : "en");
+                            }}
+                        >
+                            {t("English")}
+                        </div>
                     </div>
                 </Toolbar>
             </AppBar>
