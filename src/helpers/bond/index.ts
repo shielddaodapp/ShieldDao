@@ -50,8 +50,8 @@ export const mimTime = new LPBond({
     reserveContractAbi: LpReserveContract,
     networkAddrs: {
         [Networks.RINKEBY]: {
-            bondAddress: "0x2637771df0D67BAb0221fe1C5D86f0b088CDc406",
-            reserveAddress: "0xA50e642621b91CD1c863Bb6698c1D025407a6BDC",
+            bondAddress: "0xeD94CC12A9EFF079B7f0999bEBb62Aa2Eb418dfF",
+            reserveAddress: "0xb32C441D18994285E02F134e56c37f6f78BE3927",
         },
     },
     lpUrl: "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
