@@ -51,7 +51,7 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
         sessionStorage.setItem("lang", lang);
     };
     return (
-        <div className={`${classes.topBar} ${!drawe && classes.topBarShift}`}>
+        <div className={`${classes.topBar} ${!drawe && classes.topBarShift}`} style={{ background: "#D2D6D5" }}>
             <AppBar position="sticky" className={classes.appBar} elevation={0}>
                 <Toolbar disableGutters className="dapp-topbar">
                     <div onClick={handleDrawerToggle} className="dapp-topbar-slider-btn">
@@ -59,14 +59,28 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
                     </div>
                     <div className="dapp-topbar-btns-wrap">
                         {/* {!isVerySmallScreen && <TimeMenu />} */}
-                        {!isWrapShow && <WrapButton />}
+                        {/* {!isWrapShow && <WrapButton />} */}
                         <ConnectButton />
                         <div
+                            style={{
+                                color: "black",
+                                fontSize: "18px",
+                                width: "100px",
+                                height: "40px",
+                                backgroundColor: "white",
+                                borderRadius: "10px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                fontWeight: "bold",
+                                marginLeft: "2%",
+                                cursor: "pointer",
+                            }}
                             onClick={() => {
                                 changeLange(sessionStorage.getItem("lang") === "en" ? "zh" : "en");
                             }}
                         >
-                            {t("English")}
+                            {t("lang")}
                         </div>
                     </div>
                 </Toolbar>

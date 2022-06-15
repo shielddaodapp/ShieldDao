@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
         height: "100%",
         overflow: "auto",
         marginLeft: DRAWER_WIDTH,
+        backgroundColor: "#D2D6D5",
     },
     contentShift: {
         transition: theme.transitions.create("margin", {
@@ -63,16 +64,8 @@ function ViewBase({ children }: IViewBaseProps) {
                 </Hidden>
             </div>
             <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>
-                {!isSmallerScreen && (
-                    <div className="cubes-top">
-                        <p>{cubesImage}</p>
-                    </div>
-                )}
-                {!isSmallScreen && (
-                    <div className="cubes-bottom">
-                        <p>{cubesImage}</p>
-                    </div>
-                )}
+                {!isSmallerScreen && <div className="cubes-top">{/* <p>{cubesImage}</p> */}</div>}
+                {!isSmallScreen && <div className="cubes-bottom">{/* <p>{cubesImage}</p> */}</div>}
                 {children}
             </div>
         </div>

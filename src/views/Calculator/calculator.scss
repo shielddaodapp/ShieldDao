@@ -14,7 +14,7 @@
 
         /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
         @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-            background: #181B1C;
+            background: #181b1c;
         }
 
         border-radius: 10px;
@@ -31,7 +31,7 @@
                 font-family: Montserrat Bold;
                 font-weight: bold;
                 font-size: 20px;
-                color: #FFFFFF;
+                color: black;
                 margin-bottom: 4px;
             }
 
@@ -41,7 +41,7 @@
                 font-weight: 600;
                 font-size: 12px;
                 line-height: 15px;
-                color: #FFFFFF;
+                color: black;
             }
         }
 
@@ -78,7 +78,7 @@
                     font-weight: bold;
                     font-size: 24px;
                     line-height: 29px;
-                    color: #FFFFFF;
+                    color: black;
                 }
             }
         }
@@ -101,7 +101,7 @@
                         font-family: Montserrat SemiBold;
                         font-weight: 600;
                         font-size: 18px;
-                        color: #FFFFFF;
+                        color: black;
                     }
                 }
 
@@ -119,89 +119,90 @@
                 width: 100%;
                 margin-top: 25px;
 
-                .calculator-card-action-area-inp-wrap{
-                    .calculator-card-action-area-inp-wrap-title{
+                .calculator-card-action-area-inp-wrap {
+                    .calculator-card-action-area-inp-wrap-title {
                         font-family: Montserrat Medium;
                         font-style: normal;
                         font-weight: 500;
                         font-size: 16px;
-                        color: #FFFFFF;
+                        color: black;
                         margin-bottom: 5px;
                         margin-left: 10px;
                     }
 
-                    .calculator-card-action-input{
+                    .calculator-card-action-input {
                         width: 100%;
-            
+
                         background: rgba(255, 255, 255, 0.2);
                         border: 1px solid rgba(255, 255, 255, 0.2);
                         border-radius: 10px;
                         outline: none;
-                        
-                        .MuiOutlinedInput-input{
-                          font-family: Montserrat Medium;
-                          font-style: normal;
-                          font-weight: 500;
-                          font-size: 16px;
-                          color: rgba(255, 255, 255, 0.6);
-                          padding: 14px 20px;
+
+                        .MuiOutlinedInput-input {
+                            font-family: Montserrat Medium;
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 16px;
+                            color: rgba(255, 255, 255, 0.6);
+                            padding: 14px 20px;
                         }
-                        
-                        .MuiOutlinedInput-notchedOutline{
-                          border-color: rgba(255, 255, 255, 0.2) !important;
+
+                        .MuiOutlinedInput-notchedOutline {
+                            border-color: rgba(255, 255, 255, 0.2) !important;
                         }
-                        
-                        .stake-card-action-input-btn{
-                          cursor: pointer;
-                            
-                          p{
-                            font-family: Montserrat SemiBold;
-                            font-weight: 600;
-                            font-size: 18px;
-                            color: #FFFFFF;
-                          }
+
+                        .stake-card-action-input-btn {
+                            cursor: pointer;
+
+                            p {
+                                font-family: Montserrat SemiBold;
+                                font-weight: 600;
+                                font-size: 18px;
+                                color: black;
+                            }
                         }
-                      } 
+                    }
                 }
             }
 
-            .calculator-days-slider-wrap{
+            .calculator-days-slider-wrap {
                 margin-top: 30px;
 
-                .calculator-days-slider-wrap-title{
+                .calculator-days-slider-wrap-title {
                     font-family: Montserrat Medium;
                     font-style: normal;
                     font-weight: 500;
                     font-size: 16px;
-                    color: #FFFFFF;
+                    color: black;
                     margin-bottom: 10px;
                 }
 
-                .calculator-days-slider{
-                    .MuiSlider-rail, .MuiSlider-track{
+                .calculator-days-slider {
+                    .MuiSlider-rail,
+                    .MuiSlider-track {
                         height: 10px;
                     }
 
-                    .MuiSlider-rail{
+                    .MuiSlider-rail {
                         background: #232323;
                         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
                         border-radius: 10px;
-                        border: 1px solid #64C9FC;
+                        border: 1px solid #64c9fc;
                     }
 
-                    .MuiSlider-track{
+                    .MuiSlider-track {
                         border-top-left-radius: 10px;
                         border-bottom-left-radius: 10px;
-                        background: linear-gradient(90deg, #64C9FC 0%, #446CF6 90%);
+                        background: linear-gradient(90deg, #64c9fc 0%, #446cf6 90%);
                         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
                     }
 
-                    .MuiSlider-thumb{
+                    .MuiSlider-thumb {
                         width: 20px;
                         height: 20px;
                         background: #232323;
                         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-                        border: 2px solid #446CF6;
+                        border: 2px solid #446cf6;
                     }
                 }
             }
@@ -220,7 +221,6 @@
     .calculator-view {
         .calculator-card {
             .calculator-card-metrics {
-
                 .calculator-card-apy,
                 .calculator-card-tvl,
                 .calculator-card-index {

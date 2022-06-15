@@ -14,11 +14,13 @@ import "./drawer-content.scss";
 import DocsIcon from "../../../assets/icons/stake.svg";
 import GlobeIcon from "../../../assets/icons/wonderglobe.svg";
 import classnames from "classnames";
+import { useTranslation } from "react-i18next";
 
 function NavContent() {
     const [isActive] = useState();
     const address = useAddress();
     const { bonds } = useBonds();
+    const { t, i18n } = useTranslation();
 
     const checkPage = useCallback((location: any, page: string): boolean => {
         const currentPath = location.pathname.replace("/", "");
@@ -40,15 +42,11 @@ function NavContent() {
     return (
         <div className="dapp-sidebar">
             <div className="branding-header">
-                <Link href="https://wonderland.money" target="_blank">
-                    <img alt="" src={WonderlandIcon} />
-                </Link>
+                <img alt="" src={WonderlandIcon} />
 
                 {address && (
                     <div className="wallet-link">
-                        <Link href={`https://cchain.explorer.avax.network/address/${address}`} target="_blank">
-                            <p>{shorten(address)}</p>
-                        </Link>
+                        <p>{shorten(address)}</p>
                     </div>
                 )}
             </div>
@@ -65,7 +63,7 @@ function NavContent() {
                     >
                         <div className="dapp-menu-item">
                             <img alt="" src={DashboardIcon} />
-                            <p>Dashboard</p>
+                            <p>{t("dashboard")}</p>
                         </div>
                     </Link>
 
@@ -79,7 +77,7 @@ function NavContent() {
                     >
                         <div className="dapp-menu-item">
                             <img alt="" src={StakeIcon} />
-                            <p>Stake</p>
+                            <p>{t("stake")}</p>
                         </div>
                     </Link>
 
@@ -94,12 +92,12 @@ function NavContent() {
                     >
                         <div className="dapp-menu-item">
                             <img alt="" src={BondIcon} />
-                            <p>Mint</p>
+                            <p>{t("bond")}</p>
                         </div>
                     </Link>
 
                     <div className="bond-discounts">
-                        <p>Mint discounts</p>
+                        <p>{t("discounts")}</p>
                         {bonds.map((bond, i) => (
                             <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>
                                 {!bond.bondDiscount ? (

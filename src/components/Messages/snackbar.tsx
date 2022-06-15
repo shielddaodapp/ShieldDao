@@ -43,13 +43,13 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "#43a047",
     },
     typography: {
-        color: "#FFFFFF",
+        color: "black",
         fontFamily: "Montserrat SemiBold",
     },
     actionRoot: {
         padding: "8px 8px 8px 16px",
         justifyContent: "space-between",
-        color: "#FFFFFF",
+        color: "black",
     },
     icons: {
         marginLeft: "auto",
@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
         transition: theme.transitions.create("transform", {
             duration: theme.transitions.duration.shortest,
         }),
-        color: "#FFFFFF",
+        color: "black",
     },
     expandOpen: {
         transform: "rotate(180deg)",

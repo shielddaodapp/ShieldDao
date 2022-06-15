@@ -12,6 +12,7 @@ import { useWeb3Context } from "../../hooks";
 import { warning } from "../../store/slices/messages-slice";
 import { messages } from "../../constants/messages";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../store/slices/pending-txns-slice";
+import { useTranslation } from "react-i18next";
 
 interface IAdvancedSettingsProps {
     open: boolean;
@@ -20,6 +21,8 @@ interface IAdvancedSettingsProps {
 
 function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
     const dispatch = useDispatch();
+    const { t, i18n } = useTranslation();
+
     const { provider, address, chainID, checkWrongNetwork } = useWeb3Context();
 
     const [value, setValue] = useState("");
@@ -198,9 +201,7 @@ function Wrap({ open, handleClose }: IAdvancedSettingsProps) {
                     )}
                     {!hasAllowance() && (
                         <div className="wrap-help-text">
-                            <p>Note: The "Approve" transaction is only needed when</p>
-                            <p>wrapping for the first time; subsequent wrapping only</p>
-                            <p>requires you to perform the "Wrap" transaction.</p>
+                            <p>{t("note")}</p>
                         </div>
                     )}
                 </div>
