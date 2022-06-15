@@ -13,10 +13,10 @@ function Root() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        loadTokenPrices().then(() => setLoading(false));
+        // loadTokenPrices().then(() => setLoading(false));
     }, []);
 
-    if (loading) return <Loading />;
+    // if (loading) return <Loading />;
 
     const app = () => (
         <HashRouter>
@@ -24,7 +24,7 @@ function Root() {
         </HashRouter>
     );
 
-    return isApp() ? app() : <Landing />;
+    return app();
 }
 
 export default Root;

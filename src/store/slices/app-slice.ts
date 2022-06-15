@@ -33,8 +33,10 @@ export const loadAppDetails = createAsyncThunk(
 
         const totalSupply = (await timeContract.totalSupply()) / Math.pow(10, 9);
         const circSupply = (await memoContract.circulatingSupply()) / Math.pow(10, 9);
+        console.log("circSupply", marketPrice);
 
         const stakingTVL = circSupply * marketPrice;
+        console.log(222222, stakingTVL);
 
         const marketCap = totalSupply * marketPrice;
 
