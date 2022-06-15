@@ -18,7 +18,7 @@
         z-index: 2;
 
         @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-            background: rgba(36, 39, 41, 0.1);
+            background: white;
             backdrop-filter: blur(40px);
         }
 
@@ -44,7 +44,7 @@
                 font-weight: 500;
                 font-size: 20px;
                 line-height: 24px;
-                color: rgba(255, 255, 255, 0.6);
+                color: black;
             }
 
             .choose-bond-view-card-metrics-value {

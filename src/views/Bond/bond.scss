@@ -22,7 +22,7 @@
     .bond-card {
         max-width: 803px;
         min-height: 605px;
-        background: #181b1c;
+        background: white;
         backdrop-filter: blur(100px);
         border-radius: 10px;
         padding: 20px;
@@ -71,7 +71,7 @@
             font-weight: 500;
             font-size: 20px;
             line-height: 24px;
-            color: rgba(255, 255, 255, 0.6);
+            color: black;
         }
 
         .bond-price-data-value {
@@ -146,7 +146,7 @@
                 font-style: normal;
                 font-weight: 600;
                 font-size: 18px;
-                color: rgba(255, 255, 255, 0.6);
+                color: black;
             }
         }
 
@@ -165,18 +165,16 @@
     }
 
     .bond-input {
-        background: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid gray;
         border-radius: 10px;
         outline: none;
         margin-bottom: 20px;
-
         .MuiOutlinedInput-input {
             font-family: Montserrat Medium;
             font-style: normal;
             font-weight: 500;
             font-size: 16px;
-            color: rgba(255, 255, 255, 0.6);
+            color: black;
         }
 
         .MuiOutlinedInput-notchedOutline {
@@ -194,9 +192,8 @@
             }
         }
     }
-
     .bond-approve-btn {
-        background: rgba(255, 255, 255, 0.2);
+        background: #729bad;
         box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
         border-radius: 10px;
 
@@ -205,12 +202,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         p {
             font-family: Montserrat SemiBold;
             font-weight: 600;
             font-size: 18px;
-            color: black;
+            color: white;
             text-align: center;
         }
     }
@@ -273,6 +269,7 @@
 @media screen and (max-width: 417px) {
     .bond-price-data-title {
         font-size: 17px !important;
+        color: black !important;
     }
 
     .bond-price-data-value {

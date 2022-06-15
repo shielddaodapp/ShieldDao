@@ -19,7 +19,7 @@
             z-index: 2;
 
             @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-                background: rgba(0, 0, 0, 0.2);
+                background: white;
                 backdrop-filter: blur(100px);
             }
 
@@ -35,7 +35,7 @@
                 font-family: Montserrat Medium;
                 font-weight: 500;
                 font-size: 20px;
-                color: rgba(255, 255, 255, 0.6);
+                color: #fbb051;
             }
 
             .card-value {
@@ -43,7 +43,7 @@
                 font-weight: bold;
                 font-size: 24px;
                 font-weight: bold;
-                color: black;
+                color: #542673;
             }
         }
     }

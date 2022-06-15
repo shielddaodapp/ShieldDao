@@ -64,8 +64,8 @@ function Header({ handleDrawerToggle, drawe }: IHeader) {
                         <div
                             style={{
                                 color: "black",
-                                fontSize: "18px",
-                                width: "100px",
+                                fontSize: "16px",
+                                width: "60px",
                                 height: "40px",
                                 backgroundColor: "white",
                                 borderRadius: "10px",
