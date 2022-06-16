@@ -107,9 +107,11 @@ export const calcBondDetails = createAsyncThunk("bonding/calcBondDetails", async
     const addresses = getAddresses(networkID);
 
     const bondContract = bond.getContractForBond(networkID, provider);
+
     const bondCalcContract = getBondCalculator(networkID, provider);
 
     const terms = await bondContract.terms();
+
     const maxBondPrice = (await bondContract.maxPayout()) / Math.pow(10, 9);
 
     let marketPrice = await getMarketPrice(networkID, provider);
@@ -155,6 +157,7 @@ export const calcBondDetails = createAsyncThunk("bonding/calcBondDetails", async
 
     // Calculate bonds purchased
     const token = bond.getContractForReserve(networkID, provider);
+
     let purchased = await token.balanceOf(addresses.TREASURY_ADDRESS);
 
     if (bond.isLP) {
@@ -204,10 +207,12 @@ interface IBondAsset {
 }
 export const bondAsset = createAsyncThunk("bonding/bondAsset", async ({ value, address, bond, networkID, provider, slippage, useAvax }: IBondAsset, { dispatch }) => {
     const depositorAddress = address;
+
     const acceptedSlippage = slippage / 100 || 0.005;
     const valueInWei = ethers.utils.parseUnits(value, "ether");
     const signer = provider.getSigner();
     const bondContract = bond.getContractForBond(networkID, signer);
+    console.log(bondContract);
 
     const calculatePremium = await bondContract.bondPrice();
     const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));

@@ -1,5 +1,6 @@
 {
     "lang": "En",
+    "inverseBond": "Inverse Bond",
     "apy": "APY",
     "tvl": "TVL",
     "currentIndex": "Current Index",
@@ -25,5 +26,15 @@
     "bond": "Bond",
     "discounts": "Bond discounts",
     "nextRebasing": "Next Rebasing",
+    "Purchased": "Purchased",
+    "get": "You Will Get",
+    "maxBuy": "Max You Can Buy",
+    "miniBuy": "Minimum purchase",
+    "versTerms": "Vesting Term",
+    "PendingRewards": "Pending Rewards",
+    "Claimable Rewards": "可提取的奖励",
+    "claim": "Claim",
+    "cands": "Claim and Autostake",
+
     "note": "Note: The 'Approve' transaction is only needed when staking/unstaking for the first time; subsequent staking/unstaking only requires you to perform the 'Stake' or 'Unstake' transaction."
 }

@@ -15,7 +15,7 @@ import DocsIcon from "../../../assets/icons/stake.svg";
 import GlobeIcon from "../../../assets/icons/wonderglobe.svg";
 import classnames from "classnames";
 import { useTranslation } from "react-i18next";
-
+import logo from "../../../assets/4442.jpeg";
 function NavContent() {
     const [isActive] = useState();
     const address = useAddress();
@@ -42,7 +42,7 @@ function NavContent() {
     return (
         <div className="dapp-sidebar">
             <div className="branding-header">
-                <img alt="" src={WonderlandIcon} />
+                <img alt="" src={logo} style={{ height: "120px", width: "150px" }} />
 
                 {address && (
                     <div className="wallet-link">

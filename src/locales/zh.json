@@ -25,5 +25,15 @@
     "bond": "债券",
     "discounts": "债券折扣",
     "nextRebasing": "下一次变基",
-    "note": "注：只有在第一次质押/解押时才需要“授权”交易；后续质押/解押仅要求您执行“质押”或“解押”交易。"
+    "note": "注：只有在第一次质押/解押时才需要“授权”交易；后续质押/解押仅要求您执行“质押”或“解押”交易。",
+    "Purchased": "购买",
+    "inverseBond": "反向债券",
+    "get": "你将获取",
+    "maxBuy": "最多能买",
+    "miniBuy": "最低购买",
+    "versTerms": "条款时间",
+    "PendingRewards": "进行中的奖励",
+    "ClaimableRewards": "可提取的奖励",
+    "claim": "提取",
+    "cands": "提取并自动质押"
 }

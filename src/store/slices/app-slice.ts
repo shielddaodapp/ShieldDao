@@ -23,6 +23,7 @@ export const loadAppDetails = createAsyncThunk(
         const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
 
         const currentBlock = await provider.getBlockNumber();
+
         const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
 
         const memoContract = new ethers.Contract(addresses.MEMO_ADDRESS, MemoTokenContract, provider);
@@ -32,11 +33,10 @@ export const loadAppDetails = createAsyncThunk(
         const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
 
         const totalSupply = (await timeContract.totalSupply()) / Math.pow(10, 9);
+
         const circSupply = (await memoContract.circulatingSupply()) / Math.pow(10, 9);
-        console.log("circSupply", marketPrice);
 
         const stakingTVL = circSupply * marketPrice;
-        console.log(222222, stakingTVL);
 
         const marketCap = totalSupply * marketPrice;
 
@@ -60,6 +60,7 @@ export const loadAppDetails = createAsyncThunk(
         const epoch = await stakingContract.epoch();
 
         const stakingReward = epoch.distribute;
+
         const circ = await memoContract.circulatingSupply();
         const stakingRebase = stakingReward / circ;
         const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;

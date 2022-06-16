@@ -42,16 +42,19 @@ export const wavax = new CustomBond({
 });
 
 export const mimTime = new LPBond({
-    name: "mim_time_lp",
-    displayName: "TIME-MIM LP",
-    bondToken: "MIM",
+    name: "dai_sdd_lp",
+    displayName: "SDD-DAI LP",
+    bondToken: "SDD",
     bondIconSvg: MimTimeIcon,
     bondContractABI: LpBondContract,
     reserveContractAbi: LpReserveContract,
     networkAddrs: {
         [Networks.RINKEBY]: {
-            bondAddress: "0xeD94CC12A9EFF079B7f0999bEBb62Aa2Eb418dfF",
-            reserveAddress: "0xb32C441D18994285E02F134e56c37f6f78BE3927",
+            //bonddeposit
+            bondAddress: "0xa3FBc084995453CCe38c969402C62152c3d4356e",
+
+            //lp
+            reserveAddress: "0xaB05Cf82B23B4c047Ee67e72C9859Ae62F03B19d",
         },
     },
     lpUrl: "https://www.traderjoexyz.com/#/pool/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",

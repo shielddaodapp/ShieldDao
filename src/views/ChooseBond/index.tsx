@@ -7,10 +7,12 @@ import useBonds from "../../hooks/bonds";
 import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
+import { useTranslation } from "react-i18next";
 
 function ChooseBond() {
     const { bonds } = useBonds();
     const isSmallScreen = useMediaQuery("(max-width: 733px)"); // change to breakpoint query
+    const { t, i18n } = useTranslation();
 
     const isAppLoading = useSelector<IReduxState, boolean>(state => state.app.loading);
     const marketPrice = useSelector<IReduxState, number>(state => {
@@ -26,13 +28,13 @@ function ChooseBond() {
             <Zoom in={true}>
                 <div className="choose-bond-view-card">
                     <div className="choose-bond-view-card-header">
-                        <p className="choose-bond-view-card-title"> Mint (🫖, 🫖)</p>
+                        <p className="choose-bond-view-card-title"> {t("bond")} (🫖, 🫖)</p>
                     </div>
 
                     <Grid container item xs={12} spacing={2} className="choose-bond-view-card-metrics">
                         <Grid item xs={12} sm={6}>
                             <Box textAlign="center">
-                                <p className="choose-bond-view-card-metrics-title">Treasury Balance</p>
+                                <p className="choose-bond-view-card-metrics-title">{t("treasuryBalance")}</p>
                                 <p className="choose-bond-view-card-metrics-value">
                                     {isAppLoading ? (
                                         <Skeleton width="180px" />
@@ -50,7 +52,7 @@ function ChooseBond() {
 
                         <Grid item xs={12} sm={6}>
                             <Box textAlign="center">
-                                <p className="choose-bond-view-card-metrics-title">TIME Price</p>
+                                <p className="choose-bond-view-card-metrics-title">TIME {t("price")}</p>
                                 <p className="choose-bond-view-card-metrics-value">{isAppLoading ? <Skeleton width="100px" /> : `$${trim(marketPrice, 2)}`}</p>
                             </Box>
                         </Grid>
@@ -63,16 +65,16 @@ function ChooseBond() {
                                     <TableHead>
                                         <TableRow>
                                             <TableCell align="center">
-                                                <p className="choose-bond-view-card-table-title">Mint</p>
+                                                <p className="choose-bond-view-card-table-title">{t("bond")}</p>
                                             </TableCell>
                                             <TableCell align="center">
-                                                <p className="choose-bond-view-card-table-title">Price</p>
+                                                <p className="choose-bond-view-card-table-title">{t("price")}</p>
                                             </TableCell>
                                             <TableCell align="center">
-                                                <p className="choose-bond-view-card-table-title">ROI</p>
+                                                <p className="choose-bond-view-card-table-title">{t("roi")}</p>
                                             </TableCell>
                                             <TableCell align="right">
-                                                <p className="choose-bond-view-card-table-title">Purchased</p>
+                                                <p className="choose-bond-view-card-table-title">{t("Purchased")}</p>
                                             </TableCell>
                                             <TableCell align="right"></TableCell>
                                         </TableRow>

@@ -97,6 +97,7 @@ function Stake() {
 
     const trimmedMemoBalance = trim(Number(memoBalance), 6);
     const trimmedStakingAPY = trim(stakingAPY * 100, 1);
+
     const stakingRebasePercentage = trim(stakingRebase * 100, 4);
     const nextRewardValue = trim((Number(stakingRebasePercentage) / 100) * Number(trimmedMemoBalance), 6);
 
@@ -145,7 +146,7 @@ function Stake() {
                                     <Grid item xs={6} sm={4} md={4} lg={4}>
                                         <div className="stake-card-index">
                                             <p className="stake-card-metrics-title">{t("currentIndex")}</p>
-                                            <p className="stake-card-metrics-value">{currentIndex ? <>{trim(Number(currentIndex), 2)} TIME</> : <Skeleton width="150px" />}</p>
+                                            <p className="stake-card-metrics-value">{currentIndex ? <>{trim(Number(currentIndex), 2)} SDD</> : <Skeleton width="150px" />}</p>
                                         </div>
                                     </Grid>
                                 </Grid>
@@ -210,7 +211,7 @@ function Stake() {
                                                                 onSeekApproval("time");
                                                             }}
                                                         >
-                                                            <p>{txnButtonText(pendingTransactions, "approve_staking", `${t("stake")}SDD`)}</p>
+                                                            <p>{txnButtonText(pendingTransactions, "approve_staking", `${t("approval")} SDD`)}</p>
                                                         </div>
                                                     )}
                                                 </div>
@@ -251,17 +252,17 @@ function Stake() {
                                     <div className="stake-user-data">
                                         <div className="data-row">
                                             <p className="data-row-name">{t("yourbalance")}</p>
-                                            <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(timeBalance), 4)} TIME</>}</p>
+                                            <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(timeBalance), 4)} SDD</>}</p>
                                         </div>
 
                                         <div className="data-row">
                                             <p className="data-row-name">{t("yourstakedbalance")}</p>
-                                            <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} MEMO</>}</p>
+                                            <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{trimmedMemoBalance} sSDD</>}</p>
                                         </div>
 
                                         <div className="data-row">
                                             <p className="data-row-name">{t("nextRewardAmount")}</p>
-                                            <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{nextRewardValue} MEMO</>}</p>
+                                            <p className="data-row-value">{isAppLoading ? <Skeleton width="80px" /> : <>{nextRewardValue} sSDD</>}</p>
                                         </div>
 
                                         <div className="data-row">

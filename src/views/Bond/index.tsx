@@ -12,6 +12,7 @@ import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
 import { IAllBondData } from "../../hooks/bonds";
 import classnames from "classnames";
+import { useTranslation } from "react-i18next";
 
 interface IBondProps {
     bond: IAllBondData;
@@ -19,6 +20,7 @@ interface IBondProps {
 
 function Bond({ bond }: IBondProps) {
     const { address } = useWeb3Context();
+    const { t, i18n } = useTranslation();
 
     const [slippage, setSlippage] = useState(0.5);
 
@@ -44,23 +46,25 @@ function Bond({ bond }: IBondProps) {
                             {/* @ts-ignore */}
                             <Box direction="row" className="bond-price-data-row">
                                 <div className="bond-price-data">
-                                    <p className="bond-price-data-title">Mint Price</p>
+                                    <p className="bond-price-data-title">
+                                        {t("bond")} {t("price")}
+                                    </p>
                                     <p className="bond-price-data-value">
                                         {isBondLoading ? <Skeleton /> : bond.isLP || bond.name === "wavax" ? `$${trim(bond.bondPrice, 2)}` : `${trim(bond.bondPrice, 2)} MIM`}
                                     </p>
                                 </div>
                                 <div className="bond-price-data">
-                                    <p className="bond-price-data-title">TIME Price</p>
+                                    <p className="bond-price-data-title">SDD {t("price")}</p>
                                     <p className="bond-price-data-value">{isBondLoading ? <Skeleton /> : `$${trim(bond.marketPrice, 2)}`}</p>
                                 </div>
                             </Box>
 
                             <div className="bond-one-table">
                                 <div className={classnames("bond-one-table-btn", { active: !view })} onClick={changeView(0)}>
-                                    <p>Mint</p>
+                                    <p>{t("bond")}</p>
                                 </div>
                                 <div className={classnames("bond-one-table-btn", { active: view })} onClick={changeView(1)}>
-                                    <p>Redeem</p>
+                                    <p>{t("inverseBond")}</p>
                                 </div>
                             </div>
 

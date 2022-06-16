@@ -22,6 +22,7 @@ import { warning } from "../../../store/slices/messages-slice";
 import { messages } from "../../../constants/messages";
 import { utils } from "ethers";
 import { calcBondDetails } from "../../../store/slices/bond-slice";
+import { useTranslation } from "react-i18next";
 
 interface IZapinProps {
     open: boolean;
@@ -30,6 +31,8 @@ interface IZapinProps {
 }
 
 function Zapin({ open, handleClose, bond }: IZapinProps) {
+    const { t, i18n } = useTranslation();
+
     const { tokens } = useTokens();
     const { provider, address, chainID, checkWrongNetwork } = useWeb3Context();
     const dispatch = useDispatch();
@@ -222,7 +225,7 @@ function Zapin({ open, handleClose, bond }: IZapinProps) {
                                         await onMint();
                                     }}
                                 >
-                                    <p>{txnButtonText(pendingTransactions, "zapin_" + token.name + "_" + bond.name, "Mint")}</p>
+                                    <p>{txnButtonText(pendingTransactions, "zapin_" + token.name + "_" + bond.name, `${t("bond")}`)}</p>
                                 </div>
                             ) : (
                                 <div
