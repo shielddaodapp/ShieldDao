@@ -42,7 +42,7 @@ function NavContent() {
     return (
         <div className="dapp-sidebar">
             <div className="branding-header">
-                <img alt="" src={logo} style={{ height: "120px", width: "150px" }} />
+                <img alt="" src={logo} style={{ height: "150px", width: "220px" }} />
 
                 {address && (
                     <div className="wallet-link">
