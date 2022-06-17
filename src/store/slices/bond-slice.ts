@@ -134,6 +134,7 @@ export const calcBondDetails = createAsyncThunk("bonding/calcBondDetails", async
 
     let maxBondPriceToken = 0;
     const maxBodValue = ethers.utils.parseEther("1");
+    console.log("bond", bond);
 
     if (bond.isLP) {
         valuation = await bondCalcContract.valuation(bond.getAddressForReserve(networkID), amountInWei);
@@ -144,7 +145,12 @@ export const calcBondDetails = createAsyncThunk("bonding/calcBondDetails", async
         const maxBondQuote = await bondContract.payoutFor(maxValuation);
         maxBondPriceToken = maxBondPrice / (maxBondQuote * Math.pow(10, -9));
     } else {
+        console.log("amountInWei", amountInWei);
+
+        console.log(123, await bondContract.payoutFor(amountInWei));
+
         bondQuote = await bondContract.payoutFor(amountInWei);
+
         bondQuote = bondQuote / Math.pow(10, 18);
 
         const maxBondQuote = await bondContract.payoutFor(maxBodValue);
@@ -212,7 +218,6 @@ export const bondAsset = createAsyncThunk("bonding/bondAsset", async ({ value, a
     const valueInWei = ethers.utils.parseUnits(value, "ether");
     const signer = provider.getSigner();
     const bondContract = bond.getContractForBond(networkID, signer);
-    console.log(bondContract);
 
     const calculatePremium = await bondContract.bondPrice();
     const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));

@@ -9,17 +9,33 @@ import AvaxTimeIcon from "../../assets/tokens/TIME-AVAX.svg";
 
 import { StableBondContract, LpBondContract, WavaxBondContract, StableReserveContract, LpReserveContract } from "../../abi";
 
+// export const mim = new StableBond({
+//     name: "mim",
+//     displayName: "MIM",
+//     bondToken: "MIM",
+//     bondIconSvg: MimIcon,
+//     bondContractABI: StableBondContract,
+//     reserveContractAbi: StableReserveContract,
+//     networkAddrs: {
+//         [Networks.RINKEBY]: {
+//             bondAddress: "0x694738E0A438d90487b4a549b201142c1a97B556",
+//             reserveAddress: "0x130966628846BFd36ff31a822705796e8cb8C18D",
+//         },
+//     },
+//     tokensInStrategy: "60500000000000000000000000",
+// });
+
 export const mim = new StableBond({
-    name: "mim",
-    displayName: "MIM",
-    bondToken: "MIM",
+    name: "dai",
+    displayName: "DAI",
+    bondToken: "DAI",
     bondIconSvg: MimIcon,
     bondContractABI: StableBondContract,
     reserveContractAbi: StableReserveContract,
     networkAddrs: {
         [Networks.RINKEBY]: {
-            bondAddress: "0x694738E0A438d90487b4a549b201142c1a97B556",
-            reserveAddress: "0x130966628846BFd36ff31a822705796e8cb8C18D",
+            bondAddress: "0xCaC53103E23E53A5BE72Fd62f7bc0cD25A668D0e",
+            reserveAddress: "0x4019D3C6b9c0f65A615b08BaDb06e22D59795f10",
         },
     },
     tokensInStrategy: "60500000000000000000000000",
@@ -76,5 +92,5 @@ export const avaxTime = new CustomLPBond({
     lpUrl: "https://www.traderjoexyz.com/#/pool/AVAX/0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
 });
 
-export default [mimTime];
-// export default [mim];
+export default [mimTime, mim];
+// export default [mimTime];
