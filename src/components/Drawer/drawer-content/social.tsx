@@ -16,9 +16,9 @@ export default function Social() {
                 <SvgIcon color="primary" component={Twitter} />
             </Link>
 
-            {/* <Link href="https://t.me/joinchat/6UybL5rJMEhjN2Y5" target="_blank">
+            <Link href="https://t.me/shield_reserve" target="_blank">
                 <SvgIcon viewBox="0 0 32 32" color="primary" component={Telegram} />
-            </Link> */}
+            </Link>
 
             <Link href="https://www.youtube.com/watch?v=gx09Voo4yOM&t=1s" target="_blank">
                 <SvgIcon component={Youtube} />
