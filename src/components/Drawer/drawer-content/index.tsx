@@ -128,13 +128,13 @@ function NavContent() {
                 </div>
             </div>
             <div className="dapp-menu-doc-link">
-                <Link href="https://wonderland.gitbook.io/wonderland/" target="_blank">
+                <Link href="https://shielddao-1.gitbook.io/shielddao-zh/introduction/shen-me-shi-shield" target="_blank">
                     <img alt="" src={DocsIcon} />
                     <p>Docs</p>
                 </Link>
-                <Link href="https://legacy.wonderland.money/" target="_blank">
+                {/* <Link href="https://legacy.wonderland.money/" target="_blank">
                     <p>Legacy website</p>
-                </Link>
+                </Link> */}
             </div>
             <Social />
         </div>

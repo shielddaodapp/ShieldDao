@@ -8,7 +8,7 @@ import { ReactComponent as Youtube } from "../../../assets/icons/youtube.svg";
 export default function Social() {
     return (
         <div className="social-row">
-            <Link href="https://github.com/Wonderland-Money/wonderland-frontend" target="_blank">
+            <Link href="https://github.com/shielddaodapp" target="_blank">
                 <SvgIcon color="primary" component={GitHub} />
             </Link>
 

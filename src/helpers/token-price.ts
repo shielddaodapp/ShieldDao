@@ -10,9 +10,13 @@ export const loadTokenPrices = async (token?: string) => {
 
     // cache["AVAX"] = data["avalanche-2"].usd;
     res = data.data.price;
+    return Number(res);
 };
 
 export const getTokenPrice = (symbol: string): number => {
+    if (symbol === "MIM") {
+        return Number(res);
+    }
     return Number(res);
     // return 0.001;
 };

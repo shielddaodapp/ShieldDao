@@ -4,7 +4,7 @@ import { StakingContract, MemoTokenContract, TimeTokenContract } from "../../abi
 import { setAll } from "../../helpers";
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider } from "@ethersproject/providers";
-import { getMarketPrice, getTokenPrice } from "../../helpers";
+import { getMarketPrice, getTokenPrice, loadTokenPrices } from "../../helpers";
 import { RootState } from "../store";
 import allBonds from "../../helpers/bond";
 
@@ -17,7 +17,8 @@ export const loadAppDetails = createAsyncThunk(
     "app/loadAppDetails",
     //@ts-ignore
     async ({ networkID, provider }: ILoadAppDetails) => {
-        const mimPrice = getTokenPrice("MIM");
+        const mimPrice = await loadTokenPrices();
+
         const addresses = getAddresses(networkID);
 
         const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
@@ -47,7 +48,9 @@ export const loadAppDetails = createAsyncThunk(
         const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => tokenBalance0 + tokenBalance1, 0);
 
         const tokenAmountsPromises = allBonds.map(bond => bond.getTokenAmount(networkID, provider));
+
         const tokenAmounts = await Promise.all(tokenAmountsPromises);
+
         const rfvTreasury = tokenAmounts.reduce((tokenAmount0, tokenAmount1) => tokenAmount0 + tokenAmount1, 0);
 
         const timeBondsAmountsPromises = allBonds.map(bond => bond.getTimeAmount(networkID, provider));
@@ -66,6 +69,7 @@ export const loadAppDetails = createAsyncThunk(
         const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
         const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
         const currentIndex = await stakingContract.index();
+
         const nextRebase = epoch.endTime;
 
         const treasuryRunway = rfvTreasury / circSupply;
