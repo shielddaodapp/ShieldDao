@@ -64,7 +64,7 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
                     package: WalletConnectProvider,
                     options: {
                         rpc: {
-                            [Networks.RINKEBY]: getMainnetURI(),
+                            [Networks.BSC]: getMainnetURI(),
                         },
                     },
                 },
@@ -118,7 +118,7 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
 
         setProviderChainID(chainId);
 
-        if (chainId === Networks.RINKEBY) {
+        if (chainId === Networks.BSC) {
             setProvider(connectedProvider);
         }
 

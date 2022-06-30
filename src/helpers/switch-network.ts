@@ -1,10 +1,11 @@
 import { Networks } from "../constants/blockchain";
 
 const switchRequest = () => {
+    console.log(111111111);
     return window.ethereum.request({
         method: "wallet_switchEthereumChain",
         // params: [{ chainId: "0xa86a" }],
-        params: [{ chainId: "0x4" }],
+        params: [{ chainId: "0x38" }],
     });
 };
 
@@ -13,13 +14,13 @@ const addChainRequest = () => {
         method: "wallet_addEthereumChain",
         params: [
             {
-                chainId: "0xa86a",
+                chainId: "0x38",
                 chainName: "Avalanche Mainnet",
-                rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
-                blockExplorerUrls: ["https://cchain.explorer.avax.network/"],
+                rpcUrls: ["https://bsc-dataseed1.binance.org"],
+                blockExplorerUrls: ["https://bscscan.com"],
                 nativeCurrency: {
-                    name: "AVAX",
-                    symbol: "AVAX",
+                    name: "BNB",
+                    symbol: "BNB",
                     decimals: 18,
                 },
             },

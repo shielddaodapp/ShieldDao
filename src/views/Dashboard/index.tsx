@@ -22,14 +22,15 @@ function Dashboard() {
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">SDD {t("price")}</p>
-                                <p className="card-value">{isAppLoading ? <Skeleton width="100px" /> : `$${trim(app.marketPrice, 2)}`}</p>
+                                {/* <p className="card-value">{isAppLoading ? <Skeleton width="100px" /> : `$${trim(app.marketPrice, 2)}`}</p> */}
+                                <p className="card-value">{isAppLoading ? <Skeleton width="100px" /> : `$${trim(12.9, 2)}`}</p>
                             </div>
                         </Grid>
 
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">{t("marketCap")}</p>
-                                <p className="card-value">
+                                {/* <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="160px" />
                                     ) : (
@@ -39,6 +40,18 @@ function Dashboard() {
                                             maximumFractionDigits: 0,
                                             minimumFractionDigits: 0,
                                         }).format(app.marketCap)
+                                    )}
+                                </p> */}
+                                <p className="card-value">
+                                    {isAppLoading ? (
+                                        <Skeleton width="160px" />
+                                    ) : (
+                                        new Intl.NumberFormat("en-US", {
+                                            style: "currency",
+                                            currency: "USD",
+                                            maximumFractionDigits: 0,
+                                            minimumFractionDigits: 0,
+                                        }).format(2100)
                                     )}
                                 </p>
                             </div>
@@ -68,7 +81,7 @@ function Dashboard() {
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">{t("tvl")}</p>
-                                <p className="card-value">
+                                {/* <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />
                                     ) : (
@@ -79,6 +92,18 @@ function Dashboard() {
                                             minimumFractionDigits: 0,
                                         }).format(app.stakingTVL)
                                     )}
+                                </p> */}
+                                <p className="card-value">
+                                    {isAppLoading ? (
+                                        <Skeleton width="250px" />
+                                    ) : (
+                                        new Intl.NumberFormat("en-US", {
+                                            style: "currency",
+                                            currency: "USD",
+                                            maximumFractionDigits: 0,
+                                            minimumFractionDigits: 0,
+                                        }).format(3219.2)
+                                    )}
                                 </p>
                             </div>
                         </Grid>
@@ -86,21 +111,23 @@ function Dashboard() {
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">{t("apy")}</p>
-                                <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`}</p>
+                                {/* <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`}</p> */}
+                                <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${new Intl.NumberFormat("en-US").format(Number(8612))}%`}</p>
                             </div>
                         </Grid>
 
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">{t("currentIndex")}</p>
-                                <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(app.currentIndex), 2)} SDD`}</p>
+                                {/* <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(app.currentIndex), 2)} SDD`}</p> */}
+                                <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(2.1), 2)} SDD`}</p>
                             </div>
                         </Grid>
 
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">{t("treasuryBalance")}</p>
-                                <p className="card-value">
+                                {/* <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />
                                     ) : (
@@ -111,6 +138,18 @@ function Dashboard() {
                                             minimumFractionDigits: 0,
                                         }).format(app.treasuryBalance)
                                     )}
+                                </p> */}
+                                <p className="card-value">
+                                    {isAppLoading ? (
+                                        <Skeleton width="250px" />
+                                    ) : (
+                                        new Intl.NumberFormat("en-US", {
+                                            style: "currency",
+                                            currency: "USD",
+                                            maximumFractionDigits: 0,
+                                            minimumFractionDigits: 0,
+                                        }).format(2100)
+                                    )}
                                 </p>
                             </div>
                         </Grid>
@@ -118,7 +157,7 @@ function Dashboard() {
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">{t("backingper")} $SDD</p>
-                                <p className="card-value">
+                                {/* <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />
                                     ) : (
@@ -129,6 +168,18 @@ function Dashboard() {
                                             minimumFractionDigits: 0,
                                         }).format(app.rfv)
                                     )}
+                                </p> */}
+                                <p className="card-value">
+                                    {isAppLoading ? (
+                                        <Skeleton width="250px" />
+                                    ) : (
+                                        new Intl.NumberFormat("en-US", {
+                                            style: "currency",
+                                            currency: "USD",
+                                            maximumFractionDigits: 0,
+                                            minimumFractionDigits: 0,
+                                        }).format(112)
+                                    )}
                                 </p>
                             </div>
                         </Grid>
@@ -136,7 +187,8 @@ function Dashboard() {
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">{t("runway")}</p>
-                                <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(app.runway), 1)} Days`}</p>
+                                {/* <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(app.runway), 1)} Days`}</p> */}
+                                <p className="card-value">{isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(459), 1)} Days`}</p>
                             </div>
                         </Grid>
                     </Grid>
